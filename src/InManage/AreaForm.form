@@ -78,10 +78,10 @@
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="5">
                 <StringItem index="0" value="Location"/>
-                <StringItem index="1" value="Meals"/>
-                <StringItem index="2" value="Drinks"/>
-                <StringItem index="3" value="Snacks"/>
-                <StringItem index="4" value="Dessert"/>
+                <StringItem index="1" value="Under Ground"/>
+                <StringItem index="2" value="Ground Floor"/>
+                <StringItem index="3" value="Second Floor"/>
+                <StringItem index="4" value="Graden Area"/>
               </StringArray>
             </Property>
           </Properties>

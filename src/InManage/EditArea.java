@@ -210,7 +210,7 @@ public class EditArea extends javax.swing.JFrame {
      // Validate Category
      if (e_cat.getSelectedIndex() == 0) {
          e_cat.setBorder(BorderFactory.createLineBorder(Color.RED));
-         errorMessages.append("Please select a food category.\n");
+         errorMessages.append("Please select a area category.\n");
          isValid = false;
      } else {
          e_cat.setBorder(BorderFactory.createLineBorder(Color.GRAY));
@@ -219,7 +219,7 @@ public class EditArea extends javax.swing.JFrame {
      // Validate Status
      if (e_status.getSelectedIndex() == 0) {
          e_status.setBorder(BorderFactory.createLineBorder(Color.RED));
-         errorMessages.append("Please select a food status.\n");
+         errorMessages.append("Please select a area status.\n");
          isValid = false;
      } else {
          e_status.setBorder(BorderFactory.createLineBorder(Color.GRAY));
@@ -256,7 +256,7 @@ try {
         logPst.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
         logPst.executeUpdate();
 
-        JOptionPane.showMessageDialog(null, "Food item updated successfully!");
+        JOptionPane.showMessageDialog(null, "area  updated successfully!");
 
         // Optionally, go back to foods page
         AreasDB fdb = new AreasDB();

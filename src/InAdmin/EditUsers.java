@@ -310,9 +310,9 @@ public class EditUsers extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField add_contact;
-    private javax.swing.JTextField add_email;
-    private javax.swing.JTextField add_fname;
+    public javax.swing.JTextField add_contact;
+    public javax.swing.JTextField add_email;
+    public javax.swing.JTextField add_fname;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -325,7 +325,7 @@ public class EditUsers extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JLabel logintext;
-    private javax.swing.JTextField status;
+    public javax.swing.JTextField status;
     private javax.swing.JPanel update;
     // End of variables declaration//GEN-END:variables
 }

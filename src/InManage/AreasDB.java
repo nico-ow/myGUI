@@ -44,7 +44,8 @@ public class AreasDB extends javax.swing.JFrame {
     }
      Color hover = new Color(102,102,102);  
     Color defbutton = new Color(204,204,204);  
-    
+    Color lightGray = new Color(211, 211, 211);
+    Color lightBlue = new Color(173, 216, 230);
     Border empty = BorderFactory.createEmptyBorder();
     
     void resetButtonColor(JButton button){
@@ -421,11 +422,11 @@ public void displayData(){
     }//GEN-LAST:event_foods_dbMouseClicked
 
     private void foods_dbMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_foods_dbMouseEntered
-        foods_db.setBackground(hover);
+        foods_db.setBackground(lightGray);
     }//GEN-LAST:event_foods_dbMouseEntered
 
     private void foods_dbMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_foods_dbMouseExited
-        foods_db.setBackground(defbutton);
+        foods_db.setBackground(lightBlue);
     }//GEN-LAST:event_foods_dbMouseExited
 
     private void acc1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_acc1MouseEntered
@@ -443,11 +444,11 @@ public void displayData(){
     }//GEN-LAST:event_accMouseClicked
 
     private void accMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accMouseEntered
-        acc.setBackground(hover);
+        acc.setBackground(lightGray);
     }//GEN-LAST:event_accMouseEntered
 
     private void accMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accMouseExited
-        acc.setBackground(defbutton);
+        acc.setBackground(lightBlue);
     }//GEN-LAST:event_accMouseExited
 
     private void dbMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dbMouseClicked
@@ -457,11 +458,11 @@ public void displayData(){
     }//GEN-LAST:event_dbMouseClicked
 
     private void dbMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dbMouseEntered
-        db.setBackground(hover);
+        db.setBackground(lightGray);
     }//GEN-LAST:event_dbMouseEntered
 
     private void dbMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dbMouseExited
-        db.setBackground(defbutton);
+        db.setBackground(lightBlue);
     }//GEN-LAST:event_dbMouseExited
 
     private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseClicked
@@ -487,7 +488,7 @@ public void displayData(){
 
             if ("Unavailable".equalsIgnoreCase(foodStatus)) {
                 // Show a confirmation dialog before deleting the unavailable food item
-                int confirm = JOptionPane.showConfirmDialog(null, "This food item is unavailable. Do you want to delete it?",
+                int confirm = JOptionPane.showConfirmDialog(null, "This area item is unavailable. Do you want to delete it?",
                     "Confirm Deletion", JOptionPane.YES_NO_OPTION);
 
                 if (confirm == JOptionPane.YES_OPTION) {
@@ -498,17 +499,17 @@ public void displayData(){
                         Connection conn = dbc.getConnection();
 
                         // Prepare SQL DELETE statement
-                        String sql = "DELETE FROM food_tbl WHERE f_id = ?";
+                        String sql = "DELETE FROM area_tbl WHERE a_id = ?";
                         PreparedStatement pst = conn.prepareStatement(sql);
                         pst.setInt(1, selectedFoodId);
 
                         int rowsAffected = pst.executeUpdate();
 
                         if (rowsAffected > 0) {
-                            JOptionPane.showMessageDialog(null, "Food item deleted successfully.");
+                            JOptionPane.showMessageDialog(null, "area deleted successfully.");
                             displayData();
                         } else {
-                            JOptionPane.showMessageDialog(null, "Error: Could not delete food item.", "Error", JOptionPane.ERROR_MESSAGE);
+                            JOptionPane.showMessageDialog(null, "Error: Could not delete area item.", "Error", JOptionPane.ERROR_MESSAGE);
                         }
 
                     } catch (SQLException e) {
@@ -516,10 +517,10 @@ public void displayData(){
                     }
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "This food item is not unavailable and cannot be deleted.");
+                JOptionPane.showMessageDialog(null, "This area is not unavailable and cannot be deleted.");
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Please select a food item to delete.");
+            JOptionPane.showMessageDialog(null, "Please select a area to delete.");
         }
     }//GEN-LAST:event_jPanel8MouseClicked
 

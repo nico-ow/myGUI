@@ -49,11 +49,11 @@ public class AddOrder extends javax.swing.JFrame {
     
    public void displayProductDetails() {
     try {
-        String productIdText = p_id.getText().trim();
+        String productIdText = a_id.getText().trim();
         String quantityText = p_quantity.getText().trim();
 
         if (productIdText.isEmpty() || quantityText.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Please enter both Product ID and Quantity first.");
+            JOptionPane.showMessageDialog(null, "Please enter both Area ID and Hour first.");
             return; 
         }
 
@@ -61,12 +61,12 @@ public class AddOrder extends javax.swing.JFrame {
         int quantity = Integer.parseInt(quantityText);
 
         dbconnect dbc = new dbconnect();
-        ResultSet rs = dbc.getData("SELECT a_id, a_name, a_price, a_category FROM area_tbl WHERE a_id = " + productId);
+        ResultSet rs = dbc.getData("SELECT a_id, a_name, a_rate, a_location FROM area_tbl WHERE a_id = " + productId);
 
         if (rs.next()) {
             String id = rs.getString("a_id");
             String name = rs.getString("a_name");
-            double price = rs.getDouble("a_price");
+            double price = rs.getDouble("a_rate");
             double totalPrice = price * quantity;
 
             f_id.setText("Area ID: " + id);
@@ -99,7 +99,7 @@ public class AddOrder extends javax.swing.JFrame {
         f_quantity = new javax.swing.JLabel();
         total = new javax.swing.JLabel();
         p_quantity = new javax.swing.JTextField();
-        p_id = new javax.swing.JTextField();
+        a_id = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -168,7 +168,7 @@ public class AddOrder extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 600, 130));
         jPanel1.add(p_quantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 80, 140, 40));
-        jPanel1.add(p_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 150, 140, 40));
+        jPanel1.add(a_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 150, 140, 40));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         jLabel2.setText("Hour/Hours");
@@ -267,12 +267,12 @@ public class AddOrder extends javax.swing.JFrame {
     Connection conn = dbc.getConnection();
 
     // Insert into order_tbl
-    String sql = "INSERT INTO order_tbl (f_id, c_id, o_quantity, o_due, o_status) VALUES (?, ?, ?, ?, ?)";
+    String sql = "INSERT INTO transaction_tbl (a_id, c_id, t_hour, t_due, t_status) VALUES (?, ?, ?, ?, ?)";
     PreparedStatement pst = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
     // Get data from input fields
-    int foodId = Integer.parseInt(f_id.getText().replace("Food ID: ", "").trim());
-    int quantity = Integer.parseInt(f_quantity.getText().replace("Quantity: ", "").trim());
+    int foodId = Integer.parseInt(f_id.getText().replace("Area ID: ", "").trim());
+    int quantity = Integer.parseInt(f_quantity.getText().replace("Hour/Hours: ", "").trim());
     double due = Double.parseDouble(total.getText().replace("Total Price: ", "").trim());
     String status = "Pending";
 
@@ -382,6 +382,7 @@ public class AddOrder extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField a_id;
     private javax.swing.JTable cuisine;
     private javax.swing.JLabel f_id;
     private javax.swing.JLabel f_name;
@@ -404,7 +405,6 @@ public class AddOrder extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField p_id;
     private javax.swing.JTextField p_quantity;
     private javax.swing.JLabel total;
     // End of variables declaration//GEN-END:variables

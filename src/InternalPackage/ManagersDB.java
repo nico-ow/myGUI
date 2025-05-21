@@ -132,7 +132,7 @@ public void displayData(){
         
         try{
             dbconnect dbc = new dbconnect();
-            ResultSet rs = dbc.getData("SELECT t_id, a_id , t_hour, t_rate, t_status FROM transaction_tbl");           
+            ResultSet rs = dbc.getData("SELECT t_id, a_id , t_hour, t_due, t_status FROM transaction_tbl");           
             order.setModel(DbUtils.resultSetToTableModel(rs));
             
             
@@ -154,7 +154,7 @@ public void displayData(){
         }
 
         // Earned Funds
-        ResultSet earnedRs = dbc.getData("SELECT SUM(t_rate) AS total_earned FROM transaction_tbl");
+        ResultSet earnedRs = dbc.getData("SELECT SUM(t_due) AS total_earned FROM transaction_tbl");
         if (earnedRs.next()) {
             double total_earned = earnedRs.getDouble("total_earned");
             earned.setText("<html><center>Earned Funds<br><br>₱" + String.format("%.2f", total_earned) + "</center></html>");
@@ -215,16 +215,12 @@ public void displayData(){
         order = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
         total_ord = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         pend_ord = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         earned = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         succ_ord = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
@@ -390,10 +386,7 @@ public void displayData(){
 
         total_ord.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         total_ord.setText("Total Parking");
-        jPanel4.add(total_ord, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, 60));
-
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/total.png"))); // NOI18N
-        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
+        jPanel4.add(total_ord, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, 60));
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 130, 120));
 
@@ -402,10 +395,7 @@ public void displayData(){
 
         pend_ord.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         pend_ord.setText("Pending Parking");
-        jPanel5.add(pend_ord, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, 60));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/pending.png"))); // NOI18N
-        jPanel5.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, 30));
+        jPanel5.add(pend_ord, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, 60));
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 100, 180, 120));
 
@@ -419,22 +409,16 @@ public void displayData(){
 
         earned.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         earned.setText("Earned Funds");
-        jPanel6.add(earned, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, 60));
-
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/earned.jpg"))); // NOI18N
-        jPanel6.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
+        jPanel6.add(earned, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, 60));
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 140, 120));
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/order.png"))); // NOI18N
-        jPanel7.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
-
         succ_ord.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         succ_ord.setText("Successful Parking");
-        jPanel7.add(succ_ord, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, 60));
+        jPanel7.add(succ_ord, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, 60));
 
         jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, 180, 120));
 
@@ -689,7 +673,6 @@ if (rowIndex < 0) {
     private javax.swing.JLabel earned;
     private javax.swing.JPanel foods_db;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -699,18 +682,15 @@ if (rowIndex < 0) {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

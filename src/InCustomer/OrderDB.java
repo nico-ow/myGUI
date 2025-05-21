@@ -124,7 +124,7 @@ public void displayData(){
         
         try{
             dbconnect dbc = new dbconnect();
-            ResultSet rs = dbc.getData("SELECT t_id, a_id , t_quantity, t_rate, t_status FROM transaction_tbl");           
+            ResultSet rs = dbc.getData("SELECT t_id, a_id , t_hour, t_due, t_status FROM transaction_tbl");           
             order.setModel(DbUtils.resultSetToTableModel(rs));
             
             

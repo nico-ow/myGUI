@@ -395,7 +395,7 @@ public class AccountsPanel extends javax.swing.JFrame {
     private void csMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_csMouseExited
         cs.setBackground(lightBlue);
     }//GEN-LAST:event_csMouseExited
-
+      
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanel1MouseClicked

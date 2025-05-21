@@ -456,8 +456,9 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void accMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accMouseClicked
         AccountsPanel acc = new AccountsPanel();
-        this.dispose();
+        
         acc.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_accMouseClicked
 
     private void accMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accMouseEntered

@@ -78,7 +78,7 @@ public class AreaForm extends javax.swing.JFrame {
         jPanel4.add(f_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 200, 40));
 
         f_cat.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        f_cat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Location", "Meals", "Drinks", "Snacks", "Dessert" }));
+        f_cat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Location", "Under Ground", "Ground Floor", "Second Floor", "Graden Area" }));
         f_cat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 f_catActionPerformed(evt);
@@ -186,36 +186,36 @@ public class AreaForm extends javax.swing.JFrame {
         StringBuilder errorMessages = new StringBuilder();
 
         // Get input values
-        String foodName = f_name.getText().trim();
-        String foodPriceText = f_price.getText().trim();
-        String foodCategory = f_cat.getSelectedItem().toString().trim();
-        String foodStatus = f_status.getSelectedItem().toString().trim();
+        String AreaName = f_name.getText().trim();
+        String AreaPriceText = f_price.getText().trim();
+        String AreaCategory = f_cat.getSelectedItem().toString().trim();
+        String AreaStatus = f_status.getSelectedItem().toString().trim();
 
         // Validate Food Name
-        if (foodName.isEmpty()) {
+        if (AreaName.isEmpty()) {
             f_name.setBorder(BorderFactory.createLineBorder(Color.RED));
-            errorMessages.append("Food name is required.\n");
+            errorMessages.append("area name is required.\n");
             isValid = false;
         } else {
             f_name.setBorder(BorderFactory.createLineBorder(Color.GRAY));
         }
 
         // Validate Food Price
-        double foodPrice = 0.0;
+        double AreaPrice = 0.0;
         try {
-            foodPrice = Double.parseDouble(foodPriceText);
-            if (foodPrice < 0) throw new NumberFormatException();
+            AreaPrice = Double.parseDouble(AreaPriceText);
+            if (AreaPrice < 0) throw new NumberFormatException();
             f_price.setBorder(BorderFactory.createLineBorder(Color.GRAY));
         } catch (NumberFormatException e) {
             f_price.setBorder(BorderFactory.createLineBorder(Color.RED));
-            errorMessages.append("Enter a valid positive number for food price.\n");
+            errorMessages.append("Enter a valid positive number for area price.\n");
             isValid = false;
         }
 
         // Validate Category
         if (f_cat.getSelectedIndex() == 0) {
             f_cat.setBorder(BorderFactory.createLineBorder(Color.RED));
-            errorMessages.append("Please select a food category.\n");
+            errorMessages.append("Please select a area category.\n");
             isValid = false;
         } else {
             f_cat.setBorder(BorderFactory.createLineBorder(Color.GRAY));
@@ -224,7 +224,7 @@ public class AreaForm extends javax.swing.JFrame {
         // Validate Status
         if (f_status.getSelectedIndex() == 0) {
             f_status.setBorder(BorderFactory.createLineBorder(Color.RED));
-            errorMessages.append("Please select a food status.\n");
+            errorMessages.append("Please select a area status.\n");
             isValid = false;
         } else {
             f_status.setBorder(BorderFactory.createLineBorder(Color.GRAY));
@@ -242,10 +242,10 @@ public class AreaForm extends javax.swing.JFrame {
 
             String sql = "INSERT INTO area_tbl (a_name, a_rate, a_location, a_status, a_image) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement pst = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            pst.setString(1, foodName);
-            pst.setDouble(2, foodPrice);
-            pst.setString(3, foodCategory);
-            pst.setString(4, foodStatus);
+            pst.setString(1, AreaName);
+            pst.setDouble(2, AreaPrice);
+            pst.setString(3, AreaCategory);
+            pst.setString(4, AreaStatus);
 
             int rows = pst.executeUpdate();
 
@@ -261,7 +261,7 @@ public class AreaForm extends javax.swing.JFrame {
                 String userId = sess.getUid();
 
                 if (userId != null && !userId.trim().isEmpty()) {
-                    String actions = "Added New Food Item! ID: " + lastId;
+                    String actions = "Added New area ! ID: " + lastId;
 
                     PreparedStatement logPst = conn.prepareStatement(
                         "INSERT INTO logs (id, actions, date) VALUES (?, ?, ?)"
@@ -274,7 +274,7 @@ public class AreaForm extends javax.swing.JFrame {
                     System.out.println("Warning: Session UID is null or empty. Log not inserted.");
                 }
 
-                JOptionPane.showMessageDialog(null, "Food item added successfully!");
+                JOptionPane.showMessageDialog(null, "area added successfully!");
 
                 // Clear inputs
                 f_name.setText("");
