@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2025 at 06:07 AM
+-- Generation Time: May 22, 2025 at 01:02 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -32,8 +32,8 @@ CREATE TABLE `transaction_tbl` (
   `a_id` int(11) NOT NULL,
   `c_id` int(11) NOT NULL,
   `t_hour` int(11) NOT NULL,
-  `t_rate` int(11) NOT NULL,
-  `a_status` int(255) NOT NULL
+  `t_due` int(11) NOT NULL,
+  `t_status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 COMMIT;
 

@@ -138,31 +138,31 @@ public void displayData(){
             dbconnect dbc = new dbconnect();
             ResultSet rs = dbc.getData("SELECT a_location, COUNT(*) AS count FROM area_tbl GROUP BY a_location");
 
-            int mealsCount = (0);
-            int drinksCount = (0);
-            int snacksCount = (0);
-            int dessertCount = (0);
+            int underCount = (0);
+            int groundCount = (0);
+            int secondCount = (0);
+            int gardenCount = (0);
 
             while (rs.next()) {
                 String category = rs.getString("a_location");
                 int count = rs.getInt("count");
 
-                if ("meals".equalsIgnoreCase(category)) {
-                    mealsCount = count;
-                } else if ("drinks".equalsIgnoreCase(category)) {
-                    drinksCount = count;
-                } else if ("snacks".equalsIgnoreCase(category)) {
-                    snacksCount = count;
-                } else if ("dessert".equalsIgnoreCase(category)) {
-                    dessertCount = count;
+                if ("under".equalsIgnoreCase(category)) {
+                    underCount = count;
+                } else if ("ground".equalsIgnoreCase(category)) {
+                    groundCount = count;
+                } else if ("second".equalsIgnoreCase(category)) {
+                    secondCount = count;
+                } else if ("garden".equalsIgnoreCase(category)) {
+                    gardenCount = count;
                 }
             }
 
             // Example: Update labels in your GUI (make sure these labels exist!)
-            MealsLabel.setText("UNDERGROUND:" + mealsCount);
-            DrinksLabel.setText("GROUNDFLOOR:" + drinksCount);
-            SnacksLabel.setText("SECONDFLOOR:" + snacksCount);
-            DessertLabel.setText("GRADEN:" + dessertCount);
+            MealsLabel.setText("UNDER GROUNDS: " + underCount);
+            DrinksLabel.setText("GROUND FLOORS:" + groundCount);
+            SnacksLabel.setText("SECOND FLOORS: " + secondCount);
+            DessertLabel.setText("GRADEN AEAS: " + gardenCount);
 
         } catch (SQLException ex) {
             System.out.println("Error: " + ex.getMessage());

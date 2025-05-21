@@ -162,8 +162,8 @@ public void displayData(){
         db = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        mgname = new javax.swing.JLabel();
         pfp = new javax.swing.JLabel();
+        mgname = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -303,16 +303,17 @@ public void displayData(){
 
         jPanel2.add(db, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 190, 50));
 
-        mgname.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        mgname.setText("Hello ");
-        jPanel2.add(mgname, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 120, 40));
-
         pfp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconss/project-manager (2).png"))); // NOI18N
         jPanel2.add(pfp, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 150, 140));
+
+        mgname.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        mgname.setText("Hello");
+        jPanel2.add(mgname, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 120, 40));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 520));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 153, 153));
         jLabel3.setText("Areas*");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, -1, 30));
 

@@ -151,8 +151,8 @@ private void setDefaultProfilePicture() {
         db = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        mgname = new javax.swing.JLabel();
         pfp = new javax.swing.JLabel();
+        mgname = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         mgcontact = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
@@ -221,7 +221,7 @@ private void setDefaultProfilePicture() {
         foods_db.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel11.setText("AREA");
+        jLabel11.setText("AREAS");
         foods_db.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, 20));
         foods_db.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
@@ -319,12 +319,12 @@ private void setDefaultProfilePicture() {
 
         jPanel2.add(db, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 190, 40));
 
-        mgname.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        mgname.setText("Hello ");
-        jPanel2.add(mgname, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 110, 40));
-
         pfp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconss/project-manager (2).png"))); // NOI18N
         jPanel2.add(pfp, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 150, 140));
+
+        mgname.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        mgname.setText("Hello");
+        jPanel2.add(mgname, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 120, 40));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 520));
 
@@ -438,7 +438,7 @@ private void setDefaultProfilePicture() {
         });
         changepass.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        jLabel28.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(102, 102, 102));
         jLabel28.setText("Change Password");
         changepass.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
@@ -459,7 +459,7 @@ private void setDefaultProfilePicture() {
         });
         logout.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel26.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        jLabel26.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(102, 102, 102));
         jLabel26.setText("Logout");
         logout.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
@@ -479,7 +479,7 @@ private void setDefaultProfilePicture() {
             }
         });
 
-        jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        jLabel29.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(102, 102, 102));
         jLabel29.setText("Change Profile Picture");
 
@@ -488,7 +488,7 @@ private void setDefaultProfilePicture() {
         changepfpLayout.setHorizontalGroup(
             changepfpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, changepfpLayout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
+                .addContainerGap(26, Short.MAX_VALUE)
                 .addComponent(jLabel29)
                 .addGap(28, 28, 28))
         );

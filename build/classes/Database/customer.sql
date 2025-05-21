@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2025 at 06:06 AM
+-- Generation Time: May 22, 2025 at 01:01 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -48,7 +48,11 @@ CREATE TABLE `customer` (
 INSERT INTO `customer` (`id`, `cs_fname`, `cs_lname`, `cs_email`, `cs_contact`, `cs_user`, `cs_pass`, `cs_address`, `cs_type`, `cs_status`, `profile_picture`) VALUES
 (1, 'Nico', 'Deiparine', 'nicodeiparine14@gmail.com', '', 'nico', '42531e41e1d87d4187f55ba5e0144039012ec2daa8a99297140a56175eccd589', 'lawaan 1', 'Admin', 'Active', ''),
 (2, 'Janley', 'Deiparine', 'janleydeiparine@gmail.com', '09665214786', 'janley', '42531e41e1d87d4187f55ba5e0144039012ec2daa8a99297140a56175eccd589', 'lawaan 1', 'Manager', 'Active', 'pfpimage/default.jpg'),
-(3, 'James', 'Deiparine', 'jamesdeiparine@gmail.com', '09665214786', 'james', '42531e41e1d87d4187f55ba5e0144039012ec2daa8a99297140a56175eccd589', 'lawaan 1', 'Customer', 'Active', 'pfpimage/default.jpg');
+(3, 'James', 'Deiparine', 'jamesdeiparine@gmail.com', '09665214786', 'james', '42531e41e1d87d4187f55ba5e0144039012ec2daa8a99297140a56175eccd589', 'lawaan 1', 'Customer', 'Active', 'pfpimage/default.jpg'),
+(4, 'Angel', 'Deiparine', 'angel@gmail.com', '09665214786', 'angel', '09665214786', 'lawaan 1', 'Customer', 'Pending', 'pfpimage/default.jpg'),
+(5, 'Mike', 'Bustamante', 'mike@gmail.com', '09665214786', 'mike', '09665214786', 'minglanilla', 'Customer', 'Active', 'pfpimage/default.jpg'),
+(7, 'Jose', 'Rizal', 'jose@gmail.com', '09665214786', 'jose', '09665214786', 'lawaan 1', 'Customer', 'Pending', 'pfpimage/default.jpg'),
+(8, 'Juan', 'Dela Cruz', 'juan@gmail.com', '09665214786', 'juan', '09665214786', 'lawaan 1', 'Manager', 'Pending', 'pfpimage/default.jpg');
 
 --
 -- Indexes for dumped tables
@@ -68,7 +72,7 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

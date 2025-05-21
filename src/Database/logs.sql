@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2025 at 06:06 AM
+-- Generation Time: May 22, 2025 at 01:01 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -47,7 +47,42 @@ INSERT INTO `logs` (`log_id`, `id`, `actions`, `date`) VALUES
 (6, 2, 'Log in!', '2025-05-21'),
 (7, 1, 'Log in!', '2025-05-21'),
 (8, 3, 'Log in!', '2025-05-21'),
-(9, 3, 'Log in!', '2025-05-21');
+(9, 3, 'Log in!', '2025-05-21'),
+(10, 1, 'Log in!', '2025-05-21'),
+(11, 3, 'Log in!', '2025-05-21'),
+(12, 3, 'Log in!', '2025-05-21'),
+(13, 3, 'Log in!', '2025-05-21'),
+(14, 1, 'Log in!', '2025-05-21'),
+(15, 2, 'Log in!', '2025-05-21'),
+(16, 3, 'Log in!', '2025-05-21'),
+(17, 3, 'Log in!', '2025-05-21'),
+(18, 3, 'Log in!', '2025-05-21'),
+(19, 2, 'Log in!', '2025-05-21'),
+(20, 1, 'Log in!', '2025-05-21'),
+(21, 1, 'Created New User Account! ID: 4', '2025-05-21'),
+(22, 1, 'Updated account Information!', '2025-05-21'),
+(23, 1, 'Created New User Account! ID: 5', '2025-05-21'),
+(24, 1, 'Created New User Account! ID: 6', '2025-05-21'),
+(25, 1, 'Updated account Information!', '2025-05-21'),
+(26, 2, 'Log in!', '2025-05-21'),
+(27, 2, 'Log in!', '2025-05-21'),
+(28, 2, 'Log in!', '2025-05-21'),
+(29, 1, 'Log in!', '2025-05-21'),
+(30, 1, 'Created New User Account! ID: 7', '2025-05-21'),
+(31, 1, 'Created New User Account! ID: 8', '2025-05-21'),
+(32, 1, 'Log in!', '2025-05-21'),
+(33, 2, 'Log in!', '2025-05-21'),
+(34, 3, 'Log in!', '2025-05-21'),
+(35, 2, 'Log in!', '2025-05-21'),
+(36, 2, 'Log in!', '2025-05-21'),
+(37, 2, 'Log in!', '2025-05-21'),
+(38, 2, 'Log in!', '2025-05-21'),
+(39, 2, 'Added New Area! ID: 1', '2025-05-21'),
+(40, 3, 'Log in!', '2025-05-21'),
+(41, 2, 'Log in!', '2025-05-21'),
+(42, 2, 'Log in!', '2025-05-21'),
+(43, 2, 'Log in!', '2025-05-21'),
+(44, 2, 'Added New Area! ID: 2', '2025-05-21');
 
 --
 -- Indexes for dumped tables
@@ -67,7 +102,7 @@ ALTER TABLE `logs`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

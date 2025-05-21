@@ -104,7 +104,7 @@ public class ManagerPanel extends javax.swing.JFrame {
         adminname.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         adminname.setForeground(new java.awt.Color(102, 102, 102));
         adminname.setText("ADMIN");
-        jPanel2.add(adminname, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, -1, -1));
+        jPanel2.add(adminname, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
         db.setBackground(new java.awt.Color(173, 216, 230));
         db.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -251,6 +251,7 @@ public class ManagerPanel extends javax.swing.JFrame {
         });
         refresh.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
         jLabel7.setText("REFRESH");
         refresh.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));

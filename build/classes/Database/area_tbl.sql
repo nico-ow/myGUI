@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2025 at 06:06 AM
+-- Generation Time: May 22, 2025 at 01:01 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -36,6 +36,14 @@ CREATE TABLE `area_tbl` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `area_tbl`
+--
+
+INSERT INTO `area_tbl` (`a_id`, `a_name`, `a_rate`, `a_location`, `a_status`) VALUES
+(1, 'A1', 100, 'Under Ground', 'Available'),
+(2, 'A2', 100, 'Under Ground', 'Available');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -53,7 +61,7 @@ ALTER TABLE `area_tbl`
 -- AUTO_INCREMENT for table `area_tbl`
 --
 ALTER TABLE `area_tbl`
-  MODIFY `a_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `a_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

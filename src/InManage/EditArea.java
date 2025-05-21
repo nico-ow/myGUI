@@ -181,7 +181,7 @@ public class EditArea extends javax.swing.JFrame {
      // Validate Food Name
      if (foodName.isEmpty()) {
          e_name.setBorder(BorderFactory.createLineBorder(Color.RED));
-         errorMessages.append("Food name is required.\n");
+         errorMessages.append("Area Code is required.\n");
          isValid = false;
      } else {
          e_name.setBorder(BorderFactory.createLineBorder(Color.GRAY));
@@ -191,7 +191,7 @@ public class EditArea extends javax.swing.JFrame {
      double foodPrice = 0.0;
      if (foodPriceText.isEmpty()) {
          e_price.setBorder(BorderFactory.createLineBorder(Color.RED));
-         errorMessages.append("Food price is required.\n");
+         errorMessages.append("Area rate is required.\n");
          isValid = false;
      } else {
          try {
@@ -202,7 +202,7 @@ public class EditArea extends javax.swing.JFrame {
              e_price.setBorder(BorderFactory.createLineBorder(Color.GRAY));  // Valid input
          } catch (NumberFormatException e) {
              e_price.setBorder(BorderFactory.createLineBorder(Color.RED));
-             errorMessages.append("Enter a valid positive number for food price.\n");
+             errorMessages.append("Enter a valid positive number for area rate.\n");
              isValid = false;
          }
      }
@@ -248,7 +248,7 @@ try {
     if (rows > 0) {
         // Log action
         Session sess = Session.getInstance();
-        String actions = "Updated Food Item! ID: " + foodId;
+        String actions = "Updated Area! ID: " + foodId;
 
         PreparedStatement logPst = conn.prepareStatement("INSERT INTO logs (id, actions, date) VALUES (?, ?, ?)");
         logPst.setString(1, sess.getUid());

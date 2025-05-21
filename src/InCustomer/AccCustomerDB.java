@@ -312,7 +312,7 @@ private void setDefaultProfilePicture() {
         });
         changepass.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        jLabel28.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(102, 102, 102));
         jLabel28.setText("Change Password");
         changepass.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
@@ -333,7 +333,7 @@ private void setDefaultProfilePicture() {
         });
         logout.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel26.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        jLabel26.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(102, 102, 102));
         jLabel26.setText("Logout");
         logout.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
@@ -354,7 +354,7 @@ private void setDefaultProfilePicture() {
         });
         changepfp.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        jLabel29.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(102, 102, 102));
         jLabel29.setText("Change Profile Picture");
         changepfp.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 14, -1, -1));

@@ -207,6 +207,7 @@ public class AddUsersForm extends javax.swing.JFrame {
         });
         cancel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Cancel");
         cancel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 7, -1, -1));
@@ -227,6 +228,7 @@ public class AddUsersForm extends javax.swing.JFrame {
         });
         signup.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
         jLabel4.setText("Sign Up");
         signup.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 7, -1, -1));
@@ -451,7 +453,7 @@ public class AddUsersForm extends javax.swing.JFrame {
         pst.setString(6, password);  // Consider hashing passwords in real applications
         pst.setString(7, address);
         pst.setString(8, accountType);
-        pst.setString(9, "Active");
+        pst.setString(9, "Pending");
         pst.setString(10, profilePicture);  // Use the default image path
 
         int rows = pst.executeUpdate();

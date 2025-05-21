@@ -41,6 +41,19 @@ public class AreaForm extends javax.swing.JFrame {
     public AreaForm() {
         initComponents();
     }
+    
+    private String selectedImageFilename = null;
+    private File selectedFile = null;
+   
+
+    Color hover = new Color(153,153,153);  
+    Color defbutton = new Color(102,102,102);  
+    
+    Border empty = BorderFactory.createEmptyBorder();
+    
+    void resetButtonColor(JButton button){
+        button.setBackground(defbutton);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -61,7 +74,7 @@ public class AreaForm extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         canbot = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        edit = new javax.swing.JPanel();
+        add = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -126,20 +139,20 @@ public class AreaForm extends javax.swing.JFrame {
 
         jPanel4.add(canbot, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 110, 40));
 
-        edit.setBackground(new java.awt.Color(173, 216, 230));
-        edit.addMouseListener(new java.awt.event.MouseAdapter() {
+        add.setBackground(new java.awt.Color(173, 216, 230));
+        add.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                editMouseClicked(evt);
+                addMouseClicked(evt);
             }
         });
-        edit.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        add.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel5.setText("EDIT");
-        edit.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, 20));
+        jLabel5.setText("ADD");
+        add.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, 20));
 
-        jPanel4.add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 110, 40));
+        jPanel4.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 110, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -180,118 +193,118 @@ public class AreaForm extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_canbotMouseClicked
 
-    private void editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMouseClicked
+    private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
         dbconnect dbc = new dbconnect();
         boolean isValid = true;
         StringBuilder errorMessages = new StringBuilder();
 
-        // Get input values
-        String AreaName = f_name.getText().trim();
-        String AreaPriceText = f_price.getText().trim();
-        String AreaCategory = f_cat.getSelectedItem().toString().trim();
-        String AreaStatus = f_status.getSelectedItem().toString().trim();
+    // Get input values
+    String foodName = f_name.getText().trim();
+    String foodPriceText = f_price.getText().trim();
+    String foodCategory = f_cat.getSelectedItem().toString().trim();                     
+    String foodStatus = f_status.getSelectedItem().toString().trim();  
 
-        // Validate Food Name
-        if (AreaName.isEmpty()) {
-            f_name.setBorder(BorderFactory.createLineBorder(Color.RED));
-            errorMessages.append("area name is required.\n");
-            isValid = false;
-        } else {
-            f_name.setBorder(BorderFactory.createLineBorder(Color.GRAY));
-        }
+    // Validate Food Name
+    if (foodName.isEmpty()) {
+        f_name.setBorder(BorderFactory.createLineBorder(Color.RED));
+        errorMessages.append("Area name is required.\n");
+        isValid = false;
+    } else {
+        f_name.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+    }
 
-        // Validate Food Price
-        double AreaPrice = 0.0;
-        try {
-            AreaPrice = Double.parseDouble(AreaPriceText);
-            if (AreaPrice < 0) throw new NumberFormatException();
-            f_price.setBorder(BorderFactory.createLineBorder(Color.GRAY));
-        } catch (NumberFormatException e) {
-            f_price.setBorder(BorderFactory.createLineBorder(Color.RED));
-            errorMessages.append("Enter a valid positive number for area price.\n");
-            isValid = false;
-        }
+    // Validate Food Price
+    double foodPrice = 0.0;
+    try {
+        foodPrice = Double.parseDouble(foodPriceText);
+        if (foodPrice < 0) throw new NumberFormatException();
+        f_price.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+    } catch (NumberFormatException e) {
+        f_price.setBorder(BorderFactory.createLineBorder(Color.RED));
+        errorMessages.append("Enter a valid positive number for area rate.\n");
+        isValid = false;
+    }
 
-        // Validate Category
-        if (f_cat.getSelectedIndex() == 0) {
-            f_cat.setBorder(BorderFactory.createLineBorder(Color.RED));
-            errorMessages.append("Please select a area category.\n");
-            isValid = false;
-        } else {
-            f_cat.setBorder(BorderFactory.createLineBorder(Color.GRAY));
-        }
+    // Validate Category
+    if (f_cat.getSelectedIndex() == 0) {
+        f_cat.setBorder(BorderFactory.createLineBorder(Color.RED));
+        errorMessages.append("Please select a area location.\n");
+        isValid = false;
+    } else {
+        f_cat.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+    }
 
-        // Validate Status
-        if (f_status.getSelectedIndex() == 0) {
-            f_status.setBorder(BorderFactory.createLineBorder(Color.RED));
-            errorMessages.append("Please select a area status.\n");
-            isValid = false;
-        } else {
-            f_status.setBorder(BorderFactory.createLineBorder(Color.GRAY));
-        }
+    // Validate Status
+    if (f_status.getSelectedIndex() == 0) {
+        f_status.setBorder(BorderFactory.createLineBorder(Color.RED));
+        errorMessages.append("Please select a area status.\n");
+        isValid = false;
+    } else {
+        f_status.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+    }
 
-        // Show validation errors if any
-        if (!isValid) {
-            JOptionPane.showMessageDialog(null, errorMessages.toString(), "Validation Errors", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+    // Show validation errors if any
+    if (!isValid) {
+        JOptionPane.showMessageDialog(null, errorMessages.toString(), "Validation Errors", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
 
-        // Insert into database
-        try {
-            Connection conn = dbc.getConnection();
+    // Insert into database
+    try {
+        Connection conn = dbc.getConnection();
 
-            String sql = "INSERT INTO area_tbl (a_name, a_rate, a_location, a_status, a_image) VALUES (?, ?, ?, ?, ?)";
-            PreparedStatement pst = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            pst.setString(1, AreaName);
-            pst.setDouble(2, AreaPrice);
-            pst.setString(3, AreaCategory);
-            pst.setString(4, AreaStatus);
+        String sql = "INSERT INTO area_tbl (a_name, a_rate, a_location, a_status) VALUES (?, ?, ?, ?)";
+        PreparedStatement pst = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        pst.setString(1, foodName);
+        pst.setDouble(2, foodPrice);
+        pst.setString(3, foodCategory);
+        pst.setString(4, foodStatus);
 
-            int rows = pst.executeUpdate();
+        int rows = pst.executeUpdate();
 
-            if (rows > 0) {
-                ResultSet keys = pst.getGeneratedKeys();
-                int lastId = -1;
-                if (keys.next()) {
-                    lastId = keys.getInt(1);
-                }
-
-                // Log the action
-                Session sess = Session.getInstance();
-                String userId = sess.getUid();
-
-                if (userId != null && !userId.trim().isEmpty()) {
-                    String actions = "Added New area ! ID: " + lastId;
-
-                    PreparedStatement logPst = conn.prepareStatement(
-                        "INSERT INTO logs (id, actions, date) VALUES (?, ?, ?)"
-                    );
-                    logPst.setString(1, userId);
-                    logPst.setString(2, actions);
-                    logPst.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
-                    logPst.executeUpdate();
-                } else {
-                    System.out.println("Warning: Session UID is null or empty. Log not inserted.");
-                }
-
-                JOptionPane.showMessageDialog(null, "area added successfully!");
-
-                // Clear inputs
-                f_name.setText("");
-                f_price.setText("");
-                f_cat.setSelectedIndex(0);
-                f_status.setSelectedIndex(0);
-
-                // Redirect to FoodsDB
-                AreasDB fdb = new AreasDB();
-                this.dispose();
-                fdb.setVisible(true);
+        if (rows > 0) {
+            ResultSet keys = pst.getGeneratedKeys();
+            int lastId = -1;
+            if (keys.next()) {
+                lastId = keys.getInt(1);
             }
 
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "SQL Error: " + e.getMessage(), "Database Error", JOptionPane.ERROR_MESSAGE);
+            // Log the action
+            Session sess = Session.getInstance();
+            String userId = sess.getUid();
+
+            if (userId != null && !userId.trim().isEmpty()) {
+                String actions = "Added New Area! ID: " + lastId;
+
+                PreparedStatement logPst = conn.prepareStatement(
+                    "INSERT INTO logs (id, actions, date) VALUES (?, ?, ?)"
+                );
+                logPst.setString(1, userId);
+                logPst.setString(2, actions);
+                logPst.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
+                logPst.executeUpdate();
+            } else {
+                System.out.println("Warning: Session UID is null or empty. Log not inserted.");
+            }
+
+            JOptionPane.showMessageDialog(null, "Area added successfully!");
+
+            // Clear inputs
+            f_name.setText("");
+            f_price.setText("");
+            f_cat.setSelectedIndex(0);
+            f_status.setSelectedIndex(0);
+
+            // Redirect to FoodsDB
+            AreasDB fdb = new AreasDB();
+            this.dispose();
+            fdb.setVisible(true);
         }
-    }//GEN-LAST:event_editMouseClicked
+
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "SQL Error: " + e.getMessage(), "Database Error", JOptionPane.ERROR_MESSAGE);
+    }
+    }//GEN-LAST:event_addMouseClicked
 
     /**
      * @param args the command line arguments
@@ -329,8 +342,8 @@ public class AreaForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel add;
     private javax.swing.JPanel canbot;
-    private javax.swing.JPanel edit;
     public javax.swing.JComboBox<String> f_cat;
     private javax.swing.JTextField f_name;
     private javax.swing.JTextField f_price;
