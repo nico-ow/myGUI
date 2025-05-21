@@ -124,7 +124,7 @@ public void displayData(){
         
         try{
             dbconnect dbc = new dbconnect();
-            ResultSet rs = dbc.getData("SELECT f_id, f_name , f_price, f_category, f_status FROM food_tbl");           
+            ResultSet rs = dbc.getData("SELECT a_id, a_name , a_rate, a_location, a_status FROM area_tbl");           
             cuisine.setModel(DbUtils.resultSetToTableModel(rs));
             
             
@@ -136,7 +136,7 @@ public void displayData(){
     public void displayFoodCounts() {
         try {
             dbconnect dbc = new dbconnect();
-            ResultSet rs = dbc.getData("SELECT f_category, COUNT(*) AS count FROM food_tbl GROUP BY f_category");
+            ResultSet rs = dbc.getData("SELECT a_location, COUNT(*) AS count FROM area_tbl GROUP BY a_location");
 
             int mealsCount = (0);
             int drinksCount = (0);
@@ -144,7 +144,7 @@ public void displayData(){
             int dessertCount = (0);
 
             while (rs.next()) {
-                String category = rs.getString("f_category");
+                String category = rs.getString("a_location");
                 int count = rs.getInt("count");
 
                 if ("meals".equalsIgnoreCase(category)) {

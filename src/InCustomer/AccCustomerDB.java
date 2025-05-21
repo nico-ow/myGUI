@@ -476,8 +476,8 @@ private void setDefaultProfilePicture() {
         cs_order.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel5.setText("PARKINGS");
-        cs_order.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, 20));
+        jLabel5.setText("TRANSACTION");
+        cs_order.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 20));
         cs_order.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
         jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconss/payment-gateway.png"))); // NOI18N

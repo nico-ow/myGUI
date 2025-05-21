@@ -132,7 +132,7 @@ public void displayData(){
         
         try{
             dbconnect dbc = new dbconnect();
-            ResultSet rs = dbc.getData("SELECT t_id, a_id , t_hour, t_due, t_status FROM transaction_tbl");           
+            ResultSet rs = dbc.getData("SELECT t_id, a_id , t_hour, t_rate, t_status FROM transaction_tbl");           
             order.setModel(DbUtils.resultSetToTableModel(rs));
             
             
@@ -154,7 +154,7 @@ public void displayData(){
         }
 
         // Earned Funds
-        ResultSet earnedRs = dbc.getData("SELECT SUM(o_due) AS total_earned FROM transaction_tbl");
+        ResultSet earnedRs = dbc.getData("SELECT SUM(t_rate) AS total_earned FROM transaction_tbl");
         if (earnedRs.next()) {
             double total_earned = earnedRs.getDouble("total_earned");
             earned.setText("<html><center>Earned Funds<br><br>₱" + String.format("%.2f", total_earned) + "</center></html>");

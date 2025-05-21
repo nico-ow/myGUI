@@ -37,7 +37,7 @@ public class AddOrder extends javax.swing.JFrame {
         
         try{
             dbconnect dbc = new dbconnect();
-            ResultSet rs = dbc.getData("SELECT f_id, f_name , f_price, f_status FROM food_tbl");           
+            ResultSet rs = dbc.getData("SELECT a_id, a_name , a_rate, a_status FROM area_tbl");           
             cuisine.setModel(DbUtils.resultSetToTableModel(rs));
             
             
@@ -61,12 +61,12 @@ public class AddOrder extends javax.swing.JFrame {
         int quantity = Integer.parseInt(quantityText);
 
         dbconnect dbc = new dbconnect();
-        ResultSet rs = dbc.getData("SELECT f_id, f_name, f_price, f_category FROM food_tbl WHERE f_id = " + productId);
+        ResultSet rs = dbc.getData("SELECT a_id, a_name, a_price, a_category FROM area_tbl WHERE a_id = " + productId);
 
         if (rs.next()) {
-            String id = rs.getString("f_id");
-            String name = rs.getString("f_name");
-            double price = rs.getDouble("f_price");
+            String id = rs.getString("a_id");
+            String name = rs.getString("a_name");
+            double price = rs.getDouble("a_price");
             double totalPrice = price * quantity;
 
             f_id.setText("Area ID: " + id);

@@ -124,7 +124,7 @@ public void displayData(){
         
         try{
             dbconnect dbc = new dbconnect();
-            ResultSet rs = dbc.getData("SELECT o_id, f_id , o_quantity, o_due, o_status FROM order_tbl");           
+            ResultSet rs = dbc.getData("SELECT t_id, a_id , t_quantity, t_rate, t_status FROM transaction_tbl");           
             order.setModel(DbUtils.resultSetToTableModel(rs));
             
             
@@ -139,14 +139,14 @@ public void displayData(){
            dbconnect dbc = new dbconnect();
 
            // Successful Orders
-           ResultSet successRs = dbc.getData("SELECT COUNT(*) AS successful FROM order_tbl WHERE o_status = 'Done'");
+           ResultSet successRs = dbc.getData("SELECT COUNT(*) AS successful FROM transaction_tbl WHERE t_status = 'Done'");
            if (successRs.next()) {
                int successful = successRs.getInt("successful");
                succ_ord.setText("<html><center>Successful Orders<br><br>" + successful + "</center></html>");
            }
 
            // Pending Orders
-           ResultSet pendingRs = dbc.getData("SELECT COUNT(*) AS pending FROM order_tbl WHERE o_status = 'Pending'");
+           ResultSet pendingRs = dbc.getData("SELECT COUNT(*) AS pending FROM transaction_tbl WHERE t_status = 'Pending'");
            if (pendingRs.next()) {
                int pending = pendingRs.getInt("pending");
                pend_ord.setText("<html><center>Pending Orders<br><br>" + pending + "</center></html>");
