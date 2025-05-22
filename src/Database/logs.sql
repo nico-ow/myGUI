@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2025 at 01:01 AM
+-- Generation Time: May 22, 2025 at 03:18 AM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -82,7 +82,10 @@ INSERT INTO `logs` (`log_id`, `id`, `actions`, `date`) VALUES
 (41, 2, 'Log in!', '2025-05-21'),
 (42, 2, 'Log in!', '2025-05-21'),
 (43, 2, 'Log in!', '2025-05-21'),
-(44, 2, 'Added New Area! ID: 2', '2025-05-21');
+(44, 2, 'Added New Area! ID: 2', '2025-05-21'),
+(45, 1, 'Log in!', '2025-05-22'),
+(46, 2, 'Log in!', '2025-05-22'),
+(47, 3, 'Log in!', '2025-05-22');
 
 --
 -- Indexes for dumped tables
@@ -92,7 +95,8 @@ INSERT INTO `logs` (`log_id`, `id`, `actions`, `date`) VALUES
 -- Indexes for table `logs`
 --
 ALTER TABLE `logs`
-  ADD PRIMARY KEY (`log_id`);
+  ADD PRIMARY KEY (`log_id`),
+  ADD KEY `id` (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -102,7 +106,17 @@ ALTER TABLE `logs`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `logs`
+--
+ALTER TABLE `logs`
+  ADD CONSTRAINT `logs_ibfk_1` FOREIGN KEY (`id`) REFERENCES `customer` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

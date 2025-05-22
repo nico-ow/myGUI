@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2025 at 01:02 AM
+-- Generation Time: May 22, 2025 at 03:18 AM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -35,6 +35,29 @@ CREATE TABLE `transaction_tbl` (
   `t_due` int(11) NOT NULL,
   `t_status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `transaction_tbl`
+--
+ALTER TABLE `transaction_tbl`
+  ADD PRIMARY KEY (`t_id`),
+  ADD KEY `a_id` (`a_id`),
+  ADD KEY `c_id` (`c_id`);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `transaction_tbl`
+--
+ALTER TABLE `transaction_tbl`
+  ADD CONSTRAINT `transaction_tbl_ibfk_1` FOREIGN KEY (`t_id`) REFERENCES `area_tbl` (`a_id`),
+  ADD CONSTRAINT `transaction_tbl_ibfk_2` FOREIGN KEY (`c_id`) REFERENCES `customer` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
